@@ -1,0 +1,12 @@
+EXPENSE TRACKER
+-Core features:
+* Secure Access
+* Income and Expense Tracking
+* separate expenses by card
+* change color when the current debt is too high
+* Budgeting Tools
+* Reporting and Analytics
+* add payment method (divide the total amount by months)
+* Custom Categories
+* show montly payment amount
+* payment reminder
