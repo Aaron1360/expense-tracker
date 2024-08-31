@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import { Container, Row, Col, Form, Button, InputGroup } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +6,7 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 const LoginPage = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [buttonSize, setButtonSize] = useState("md");
     // const [error, setError] = useState('');
 
     // Handle form submission
@@ -14,12 +15,33 @@ const LoginPage = () => {
         // Perform login logic here
         console.log('Username:', username);
         console.log('Password:', password);
+        // Reset form fields
+        setUsername('');
+        setPassword('');
     };
+
+    const updateButtonSize = () => {
+        if (window.innerWidth >= 400) {
+            setButtonSize("lg");
+        } else{
+            setButtonSize("md");
+        }
+    }
+
+    useEffect(() => {
+        updateButtonSize();
+        window.addEventListener("resize", updateButtonSize);
+        return () => {
+            window.removeEventListener("resize", updateButtonSize);
+        }
+    }, []);
 
     return (
         <Container
             fluid 
             className="
+                main-container
+                responsive-text
                 bg-dark
                 text-white
                 min-vh-100
@@ -31,21 +53,21 @@ const LoginPage = () => {
                 align-items-center"
             >
                 <Col className="
+                    main-column
                     min-vh-100
                     d-flex
                     flex-column
                     text-center
                     justify-content-evenly
                     align-items-strech"
-                    style={{ maxWidth: '600px' }}
+                    // style={{maxWidth: '400px'}}
                 >
                     {/* Logo */}
                     <Container>
                         <img
                             src="devmtn.png"
                             alt="Logo"
-                            className="mt-4"
-                            style={{ width: '100px' }}
+                            className="logo-image mt-4"
                         />
                         <h2 >Expense Tracker</h2>
                         <p className='mt-4'>Please login to your account</p>
@@ -89,7 +111,8 @@ const LoginPage = () => {
                         <Button 
                             variant="primary"
                             type="submit"
-                            size='lg'
+                            size={buttonSize}
+                            className='login-btn'
                         >
                             Login
                         </Button>
@@ -108,11 +131,12 @@ const LoginPage = () => {
                         {/* Remember Me and Forgot Password */}
                         <Container 
                             className='
+                                remember-forgot-container
                                 d-flex
                                 flex-row
                                 flex-wrap
                                 justify-content-between
-                                align-items-stretch
+                                align-items-center
                                 p-0
                                 mb-4'
                         >
@@ -126,7 +150,8 @@ const LoginPage = () => {
                         <Button 
                             variant='outline-primary'
                             type='submit'
-                            size='lg'
+                            size={buttonSize}
+                            className='signup-btn'
                         >
                             Sign Up
                         </Button>
