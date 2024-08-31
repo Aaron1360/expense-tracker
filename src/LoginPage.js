@@ -1,7 +1,8 @@
 import { useState, useEffect} from 'react';
 import { Container, Row, Col, Form, Button, InputGroup } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
+import { PersonFill, LockFill } from 'react-bootstrap-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faUser, faLock } from '@fortawesome/free-solid-svg-icons';
 
 const LoginPage = () => {
     const [username, setUsername] = useState('');
@@ -80,7 +81,7 @@ const LoginPage = () => {
                         >
                             <InputGroup>
                                 <InputGroup.Text>
-                                    <FontAwesomeIcon icon={faUser} />
+                                    <PersonFill className='icon'/> {/*Icon*/}
                                 </InputGroup.Text>
                                 <Form.Control
                                     type="text"
@@ -97,7 +98,7 @@ const LoginPage = () => {
                         >
                             <InputGroup>
                                 <InputGroup.Text>
-                                    <FontAwesomeIcon icon={faLock} />
+                                    <LockFill className='icon'/> {/*Icon*/}
                                 </InputGroup.Text>
                                 <Form.Control
                                     type="password"

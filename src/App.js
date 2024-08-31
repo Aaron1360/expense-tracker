@@ -1,10 +1,12 @@
 import React from 'react';
-import LoginPage from './LoginPage';
+// import LoginPage from './LoginPage';
+import HomePage from './HomePage';
 
 function App() {
-  return (//bg-dark text-white min-vh-100 d-flex flex-column justify-content-center align-items-center
+  return (
     <div className="App">
-      <LoginPage />
+      {/* <LoginPage /> */}
+      <HomePage />
     </div>
   );
 }
