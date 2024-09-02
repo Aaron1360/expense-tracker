@@ -37,6 +37,10 @@ const LoginPage = () => {
         }
     }, []);
 
+    useEffect(() => {
+        document.title = 'Expense Tracker';
+    }, []);
+    
     return (
         <Container
             fluid 
