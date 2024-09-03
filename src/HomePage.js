@@ -9,14 +9,15 @@ const HomePage = () => {
 
     return (
         <Container
+            fluid
             className="
                 d-flex
                 flex-column
-                align-items-stretch 
                 justify-content-between
+                align-items-center
                 bg-dark
                 min-vh-100
-                px-4"
+                px-3"
         >
             {/* User and logout button */}
             <Navbar
@@ -24,7 +25,9 @@ const HomePage = () => {
                 className="
                     bg-dark
                     navbar-custom
-                    py-4">
+                    min-vw-100
+                    p-4"
+            >
                 <Navbar.Brand href="#home">
                     <Image
                         alt=""
@@ -36,31 +39,51 @@ const HomePage = () => {
                     />
                     <span className="ms-2">Username</span>
                 </Navbar.Brand>
-                <Button variant="dark" className="icon-button">
+                <Button
+                    variant="dark"
+                    className="
+                        icon-button
+                        p-1"
+                >
                     <BoxArrowRight size={24} />
                 </Button>
             </Navbar>
             {/* Credit card image */}
-            <Carousel data-bs-theme="dark">
+            <Carousel
+                data-bs-theme="dark"
+                className="
+                    d-flex
+                    min-vw-100
+                    px-4
+                    pb-4"
+            >{/*TODO: fix item size*/}
                 <Carousel.Item>
-                    <Image
-                        src="https://placehold.co/300x185.png"
-                        alt="Placeholder"
-                        rounded
-                    />
-                    <Carousel.Caption>
-                        <h3 style={{ color: "black" }}>First slide label</h3>
-                        <p style={{ color: "black" }}>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
+                    <Container
+                        fluid
+                        className="
+                            d-flex
+                            justify-content-center
+                            align-items-center
+                        "
+                    >
+                        <Image
+                            src="https://placehold.co/300x185.png"
+                            alt="Placeholder"
+                            rounded
+                        />
+                    </Container>
+                        <Carousel.Caption>
+                            <h3 style={{ color: "black" }}>First slide label</h3>
+                            <p style={{ color: "black" }}>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>
             {/* Table */}
-            <Container 
+            <Container
                 fluid
                 className="
-                    d-flex
                     flex-grow-1
-                    py-3"
+                    pb-4"
             >
                 <Table bordered hover variant="dark">
                     <thead>
@@ -93,20 +116,26 @@ const HomePage = () => {
                 </Table>
             </Container>
             {/* Navigation Bar */}
-            <ButtonGroup className="d-flex justify-content-center mb-3">
-                <Button variant="dark" href="/home" className="icon-button">
-                    <House size={24} />
-                </Button>
-                <Button variant="dark" href="/about" className="icon-button">
-                    <InfoCircle size={24} />
-                </Button>
-                <Button variant="dark" href="/profile" className="icon-button">
-                    <Person size={24} />
-                </Button>
-                <Button variant="dark" href="/settings" className="icon-button">
-                    <Gear size={24} />
-                </Button>
-            </ButtonGroup>
+            <Container
+                fluid
+                className="
+                    pb-2"
+            >
+                <ButtonGroup className="d-flex justify-content-center mb-3">
+                    <Button variant="dark" href="/home" className="icon-button">
+                        <House size={24} />
+                    </Button>
+                    <Button variant="dark" href="/about" className="icon-button">
+                        <InfoCircle size={24} />
+                    </Button>
+                    <Button variant="dark" href="/profile" className="icon-button">
+                        <Person size={24} />
+                    </Button>
+                    <Button variant="dark" href="/settings" className="icon-button">
+                        <Gear size={24} />
+                    </Button>
+                </ButtonGroup>
+            </Container>
         </Container>
     );
 };
