@@ -1,4 +1,4 @@
-import { Image, Nav, Navbar, NavDropdown, Table, Carousel, Button, ButtonGroup, Stack, Container } from "react-bootstrap";
+import { Image, Navbar, Table, Carousel, Button, ButtonGroup, Container } from "react-bootstrap";
 import { BoxArrowRight, House, InfoCircle, Person, Gear } from 'react-bootstrap-icons';
 import { useEffect } from 'react';
 
@@ -16,12 +16,12 @@ const HomePage = () => {
                 justify-content-between
                 align-items-center
                 bg-dark
-                min-vh-100
+                vh-100
                 px-3"
         >
             {/* User and logout button */}
             <Navbar
-                expand="lg"
+                expand="true"
                 className="
                     bg-dark
                     navbar-custom
